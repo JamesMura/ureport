@@ -8,3 +8,5 @@ build
 dist
 ureport.egg-info
 .idea
+ureport_project/binary/
+ureport_project/test_sqlite.db

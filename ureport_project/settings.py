@@ -41,9 +41,9 @@ TIME_ZONE = "Africa/Kampala"
 EMAIL_HOST_USER = ''
 EMAIL_HOST = '127.0.0.1'
 OPT_IN_WORDS = ['join']
-OPT_IN_WORDS_LUO=["donyo","dony","donyo","doyo",]
+OPT_IN_WORDS_LUO = ["donyo", "dony", "donyo", "doyo", ]
 OPT_IN_CONFIRMATION = "Welcome to UReport! Ureport is a community of Ugandan youth that are dedicated to working for positive change in their communities. Stay tuned for more info."
-OPT_OUT_WORDS = ['stop', 'unjoin', 'quit','giki']
+OPT_OUT_WORDS = ['stop', 'unjoin', 'quit', 'giki']
 OPT_OUT_CONFIRMATION = "Your UReport opt out is confirmed.If you made a mistake,or you want your voice to be heard again,text in JOIN and send it to 8500!All SMS messages are free"
 
 # map bounding box
@@ -68,7 +68,7 @@ LANGUAGES = (
 # see: http://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE' : 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ureport',
         'HOST': 'dbserver',
         'USER': 'postgres',
@@ -134,7 +134,7 @@ INSTALLED_APPS = [
     "celery",
     "djcelery",
     #"permission",
-   # nothing after south
+    # nothing after south
     "south",
 ]
 
@@ -152,17 +152,17 @@ SMS_APPS = [
 # tabbed navigation. when adding an app to INSTALLED_APPS, you may wish
 # to add it here, also, to expose it in the rapidsms ui.
 RAPIDSMS_TABS = [
-     ("rapidsms-dashboard", "Home"),
-     ("ureport-about", "About"),
-     ("polls-summary", "Polls"),
-     ("ureport-stories", "Stories"),
+    ("rapidsms-dashboard", "Home"),
+    ("ureport-about", "About"),
+    ("polls-summary", "Polls"),
+    ("ureport-stories", "Stories"),
 ]
 
 AUTHENTICATED_TABS = [
     ("ureport-polls", "Poll Admin"),
     ("messagelog", "Message Log"),
     ("ureport-contact", "uReporters"),
-     ("flaggedmessages", "Flagged Messages"),
+    ("flaggedmessages", "Flagged Messages"),
 ]
 
 # -------------------------------------------------------------------- #
@@ -200,7 +200,7 @@ SITE_ID = 1
 DEPLOYMENT_ID = 1
 
 #model containing blacklisted contacts
-BLACKLIST_MODEL= "unregister.Blacklist"
+BLACKLIST_MODEL = "unregister.Blacklist"
 
 # these weird dependencies should be handled by their respective apps,
 # but they're not, so here they are. most of them are for django admin.
@@ -216,7 +216,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 ]
 
 MIDDLEWARE_CLASSES = (
-     'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -226,7 +226,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.transaction.TransactionMiddleware',
     #'tracking.middleware.UserTrackingMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-     "ureport.middleware.permissions.RequirePermissionMiddleware",
+    "ureport.middleware.permissions.RequirePermissionMiddleware",
 )
 
 # -------------------------------------------------------------------- #
@@ -244,7 +244,6 @@ TEST_EXCLUDED_APPS = [
     "rapidsms.contrib.ajax",
     "rapidsms.contrib.httptester",
 ]
-
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -276,7 +275,7 @@ ALLOWED = (
     r'/signup/$',
     r'^/bestviz(.*)'
 
-    )
+)
 
 #AUTHENTICATION_BACKENDS = (
 #    'django.contrib.auth.backends.ModelBackend',
@@ -287,7 +286,7 @@ ALLOWED = (
 SOUTH_TESTS_MIGRATE = False
 
 USE_I18N = True
-INITIAL_USSD_SCREEN='ussd_root'
+INITIAL_USSD_SCREEN = 'ussd_root'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
@@ -309,5 +308,13 @@ try:
         from localsettings import *
 except ImportError:
     pass
+
 if 'test' in sys.argv:
-    DATABASES['default'] = {'ENGINE': 'django.db.backends.sqlite3'}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ('test_sqlite.db')
+        }
+    }
+
+

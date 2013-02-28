@@ -43,7 +43,7 @@ urlpatterns = patterns('',
 ) + router_urls + ureport_urls + contact_urls + tracking_urls + generic_urls+ ussd_urls+class_urls
 
 
-if settings.DEBUG:
+if settings.DEBUG or settings.MEDIA_DEBUG:
     urlpatterns += patterns('',
         # helper URLs file that automatically serves the 'static' folder in
         # INSTALLED_APPS via the Django static media server (NOT for use in
